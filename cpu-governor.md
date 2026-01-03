@@ -40,7 +40,10 @@ governor="performance"
 
 
 # Enable & Activate systemd service
-sudo systemctl enable --now cpupower.service
+- sudo systemctl enable --now cpupower.service
 
 # Restart systemd service
-sudo systemctl restart cpupower.service
+- sudo systemctl restart cpupower.service
+
+# View actual scaling governor
+- cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
