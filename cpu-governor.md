@@ -1,5 +1,26 @@
 # CPUPOWER systemd service
 
+## Quick comparison (audio perspective)
+
+| Governor     | Latency | Stability | Audio use |
+|-------------|---------|-----------|-----------|
+| performance | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ✅ Pro |
+| schedutil   | ⭐⭐⭐     | ⭐⭐⭐     | ⚠️ Casual |
+| ondemand    | ⭐⭐      | ⭐⭐      | ❌ Risky |
+| powersave   | ⭐       | ⭐       | ❌ No |
+<pre>
+⚠️ Warning: Not all CPUs support all governors
+CPU governor availability depends on:
+ - CPU model
+ - Kernel configuration
+ - Active CPU frequency driver (intel_pstate, acpi-cpufreq, etc.)
+Do not assume performance, schedutil, etc. are always available.
+
+List available CPU governors
+-cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+</pre>
+
+# Archlinux Installation / Configuration
 - sudo pacman -S linux-tools
 - sudo nano /etc/default/cpupower
 
